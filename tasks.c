@@ -4,19 +4,7 @@
 int max_tasks= 10;
 int num_tasks= 0;
 char tasks[10][100];
-/*
-int _length() {
-    int i, len;
-    len= 0;
 
-    for(i=0; i< max_tasks; i++) {
-        if(strlen(tasks[i]) > 0 && tasks[0] != '\0') {
-            len++;
-        }
-    }
-
-    return len;
-}*/
 
 void todo_add(char task[100]) {
     int len= num_tasks;
@@ -42,6 +30,10 @@ void todo_show() {
     }
 }
 
+void custom_flush() {
+	while ( getchar() != '\n' );
+}
+
 void todo_init() {
     int option, loop= 1, id;
     char task[100];
@@ -51,11 +43,13 @@ void todo_init() {
     printf("\n");
     printf("Type '1' to add task, '2' to remove task, '3' to exit\n: ");
     scanf("%d",&option);
+    
+    custom_flush();
 
     if(option == 1) {
         printf("Your task : ");
-        // fgets(task,100,stdin);
-        scanf("%s",&task);
+
+        fgets(task,sizeof(char)*100,stdin);
 
         printf(task);
 
