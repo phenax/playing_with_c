@@ -2,8 +2,9 @@
 #include <string.h>
 
 int max_tasks= 10;
+int num_tasks= 0;
 char tasks[10][100];
-
+/*
 int _length() {
     int i, len;
     len= 0;
@@ -15,15 +16,16 @@ int _length() {
     }
 
     return len;
-}
+}*/
 
 void todo_add(char task[100]) {
-    int len= _length();
+    int len= num_tasks;
+    num_tasks++;
     strcpy(tasks[len],task);
 }
 
 void todo_remove(int id) {
-    int i, len= _length();
+    int i, len= num_tasks;
 
     for(i = id; i< len; i++) {
         strcpy(tasks[i],tasks[i+1]);
@@ -31,7 +33,7 @@ void todo_remove(int id) {
 }
 
 void todo_show() {
-    int i, len= _length();
+    int i, len= num_tasks;
 
     printf("%d tasks loaded\n",len);
 
