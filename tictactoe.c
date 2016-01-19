@@ -28,7 +28,7 @@ char tie_checker(char wins) {
 	return wins;
 };
 
-void check_board() {
+int check_board() {
 	char wins;
 	wins= '-';
 
@@ -54,9 +54,11 @@ void check_board() {
     }
 
     winner= wins;
+
+    return 0;
 }
 
-void show_board() {
+int show_board() {
 	for(int i= 0; i< 3; i++) {
 		for(int j= 0; j< 3; j++) {
 			printf("| %c |",board[i][j]);
@@ -66,18 +68,22 @@ void show_board() {
 	}
 
 	printf("\n");
+
+	return 0;
 }
 
-void change_board(int row, int col) {
+int change_board(int row, int col) {
 	if(board[row-1][col-1] == '-') {
 		board[row-1][col-1]= player;
 		player= (player == PL_X)? PL_O: PL_X;
 	}
 
 	check_board();
+
+	return 0;
 }
 
-void input_board() {
+int input_board() {
 	int row,col;
 
 	show_board();
@@ -98,6 +104,8 @@ void input_board() {
 	} else {
 		printf("~~~~ # Player %c wins # ~~~~~\n", winner);
 	}
+
+	return 0;
 }
 
 int main() {
