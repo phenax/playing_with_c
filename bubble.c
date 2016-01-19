@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void bubble(int input[],int size) {
+int bubble(int input[],int size) {
 
 	for(int i= 0; i< size; i++) {
 
@@ -14,6 +14,8 @@ void bubble(int input[],int size) {
 
 		}
 	}
+
+	return 0;
 
 }
 

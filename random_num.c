@@ -2,7 +2,7 @@
 #include <time.h>
 #include <stdlib.h>
 
-void generate_matrix(int num) {
+int generate_matrix(int num) {
     int i;
 
     srand(time(NULL));
@@ -12,6 +12,8 @@ void generate_matrix(int num) {
     }
 
     printf("\n");
+
+    return 0;
 }
 
 int main() {

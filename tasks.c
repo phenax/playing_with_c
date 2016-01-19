@@ -6,21 +6,23 @@ int num_tasks= 0;
 char tasks[10][100];
 
 
-void todo_add(char task[100]) {
+int todo_add(char task[100]) {
     int len= num_tasks;
     num_tasks++;
     strcpy(tasks[len],task);
 }
 
-void todo_remove(int id) {
+int todo_remove(int id) {
     int i, len= num_tasks;
 
     for(i = id; i< len; i++) {
         strcpy(tasks[i],tasks[i+1]);
     }
+
+    return 0;
 }
 
-void todo_show() {
+int todo_show() {
     int i, len= num_tasks;
 
     printf("%d tasks loaded\n",len);
@@ -28,13 +30,17 @@ void todo_show() {
     for(i= 0; i< len; i++) {
         printf("%d -> %s\n",i,tasks[i]);
     }
+
+    return 0;
 }
 
-void custom_flush() {
+int custom_flush() {
 	while ( getchar() != '\n' );
+
+    return 0;
 }
 
-void todo_init() {
+int todo_init() {
     int option, loop= 1, id;
     char task[100];
 
@@ -66,10 +72,14 @@ void todo_init() {
     if(loop) {
         todo_init();
     }
+
+    return 0;
 }
 
 
-void main() {
+int main() {
     printf("# Welcome to todo todo #\n");
-    todo_init();    
+    todo_init();
+
+    return 0;
 }
